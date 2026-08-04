@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budget — Vietnam 2026</title>
+<meta name="description" content="Shared expense tracker for the Vietnam 2026 trip.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="nav-brand" href="index.html">VIETNAM <span class="flight-code">SGN&nbsp;→&nbsp;HAN&nbsp;'26</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Trip Hub</a></li>
+      <li><a href="itinerary.html">Itinerary</a></li>
+      <li><a href="budget.html" aria-current="page">Budget</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="wrap" style="padding-top:56px; padding-bottom:8px;">
+  <p class="eyebrow">Shared expenses</p>
+  <h1 style="font-size:clamp(2rem,4.5vw,3rem); font-weight:600; max-width:22ch;">Split the bill</h1>
+  <p style="color:var(--on-indigo-soft); max-width:60ch; margin-top:14px;">Log anything paid on the group's behalf — Airbnbs, flights, tours, big dinners — and this keeps a running tally of who owes who. Saved right in this browser, so it'll stick around next time you open the page here.</p>
+</header>
+
+<section class="wrap">
+  <div class="budget-panel">
+
+    <div class="budget-summary">
+      <div class="stat"><div class="num" id="sum-total">$0</div><div class="stat-label">Total spent</div></div>
+      <div class="stat"><div class="num" id="sum-count">0</div><div class="stat-label">Expenses logged</div></div>
+      <div class="stat"><div class="num" id="sum-perhead">$0</div><div class="stat-label">Avg. per person</div></div>
+    </div>
+
+    <form id="expense-form" class="expense-form" autocomplete="off">
+      <div class="full">
+        <label for="exp-desc">What was it</label>
+        <input type="text" id="exp-desc" placeholder="e.g. Summer Apartment Hotel, 2 nights" required>
+      </div>
+      <div>
+        <label for="exp-amount">Amount (USD)</label>
+        <input type="number" id="exp-amount" min="0" step="0.01" placeholder="0.00" required>
+      </div>
+      <div>
+        <label for="exp-payer">Paid by</label>
+        <select id="exp-payer" required>
+          <option value="Olivia">Olivia</option>
+          <option value="Peter">Peter</option>
+          <option value="Andrew">Andrew</option>
+          <option value="Joyce">Joyce</option>
+          <option value="Jonathan">Jonathan</option>
+        </select>
+      </div>
+      <div class="full">
+        <label>Split between</label>
+        <div class="split-group" id="split-group">
+          <label class="split-chip active"><input type="checkbox" value="Olivia" checked>Olivia</label>
+          <label class="split-chip active"><input type="checkbox" value="Peter" checked>Peter</label>
+          <label class="split-chip active"><input type="checkbox" value="Andrew" checked>Andrew</label>
+          <label class="split-chip active"><input type="checkbox" value="Joyce" checked>Joyce</label>
+          <label class="split-chip active"><input type="checkbox" value="Jonathan" checked>Jonathan</label>
+        </div>
+      </div>
+      <div class="full" style="display:flex; gap:12px;">
+        <button type="submit" class="btn">Add expense</button>
+        <button type="button" class="btn ghost" id="clear-all">Clear all</button>
+      </div>
+    </form>
+
+    <table class="expense-table">
+      <thead>
+        <tr>
+          <th>What</th>
+          <th>Paid by</th>
+          <th>Split between</th>
+          <th class="amount">Amount</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="expense-rows">
+        <tr class="empty-row"><td colspan="5">No expenses yet — add the first one above.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-head" style="margin-top:36px; margin-bottom:16px;">
+      <p class="eyebrow">Settle up</p>
+      <h2 style="font-size:1.4rem;">Balances</h2>
+    </div>
+    <div class="balances" id="balances">
+      <div class="balance-row"><span class="who">Add an expense to see balances</span></div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">VIETNAM <span class="gold">2026</span> · HCMC → Ninh Binh → Hanoi · Nov 19–28</div>
+</footer>
+
+<script src="js/budget.js"></script>
+</body>
+</html>
