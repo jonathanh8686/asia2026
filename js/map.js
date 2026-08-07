@@ -7,19 +7,22 @@
       key: 'hcm',
       name: 'Ho Chi Minh City',
       meta: 'Nov 20–23 · nightlife & sightseeing',
-      lat: 10.7769, lng: 106.7009
+      lat: 10.7769, lng: 106.7009,
+      labelDir: 'right'
     },
     {
       key: 'ninhbinh',
       name: 'Ninh Binh',
       meta: 'Nov 26 · rice paddies & boat tour',
-      lat: 20.2506, lng: 105.9744
+      lat: 20.2506, lng: 105.9744,
+      labelDir: 'right'
     },
     {
       key: 'hanoi',
       name: 'Hanoi',
       meta: 'Nov 24–28 · Old Quarter & egg coffee',
-      lat: 21.0278, lng: 105.8342
+      lat: 21.0278, lng: 105.8342,
+      labelDir: 'left'
     }
   ];
 
@@ -43,21 +46,28 @@
     lineCap: 'round'
   }).addTo(map);
 
-  stops.forEach(function (s) {
+  stops.forEach(function (s, i) {
     var icon = L.divIcon({
       className: '',
-      html: '<div class="trip-pin ' + s.key + '"></div>',
+      html: '<div class="trip-pin ' + s.key + '"><span class="trip-pin-num">' + (i + 1) + '</span></div>',
       iconSize: [22, 22],
       iconAnchor: [11, 11],
       popupAnchor: [0, -12]
     });
 
-    L.marker([s.lat, s.lng], { icon: icon })
+    var marker = L.marker([s.lat, s.lng], { icon: icon })
       .addTo(map)
       .bindPopup(
         '<p class="popup-city">' + s.name + '</p>' +
         '<p class="popup-meta">' + s.meta + '</p>'
       );
+
+    marker.bindTooltip(s.name, {
+      permanent: true,
+      direction: s.labelDir,
+      offset: s.labelDir === 'left' ? [-14, 0] : [14, 0],
+      className: 'trip-label'
+    });
   });
 
   map.fitBounds(latlngs, { padding: [36, 36] });

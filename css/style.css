@@ -344,6 +344,7 @@ h1,h2,h3{ font-family:var(--font-head); margin:0; color:var(--ink); font-weight:
 
 /* flat pin markers */
 .trip-pin{
+  position:relative;
   width:22px; height:22px;
   border:2px solid var(--ink);
   border-radius:4px;
@@ -353,6 +354,32 @@ h1,h2,h3{ font-family:var(--font-head); margin:0; color:var(--ink); font-weight:
 .trip-pin.hcm{ background:var(--red-bright); }
 .trip-pin.ninhbinh{ background:var(--teal-bright); }
 .trip-pin.hanoi{ background:var(--gold-bright); }
+.trip-pin-num{
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%) rotate(-45deg);
+  font-family:var(--font-mono);
+  font-weight:700;
+  font-size:0.62rem;
+  line-height:1;
+  color:var(--paper);
+}
+.trip-pin.hanoi .trip-pin-num{ color:var(--ink); }
+
+/* permanent order labels */
+.leaflet-tooltip.trip-label{
+  background:var(--paper);
+  border:2px solid var(--ink);
+  border-radius:20px;
+  box-shadow:2px 2px 0 var(--ink);
+  padding:2px 10px;
+  font-family:var(--font-mono);
+  font-weight:600;
+  font-size:0.68rem;
+  color:var(--ink);
+  white-space:nowrap;
+}
+.leaflet-tooltip.trip-label::before{ display:none; }
 
 /* leaflet chrome, retheme to match flat/hard-border system */
 .leaflet-container{
