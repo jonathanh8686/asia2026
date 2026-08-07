@@ -6,12 +6,12 @@ Static site, no build step. Deploy by serving this folder directly (e.g. `nginx`
 
 ## Structure
 
-- `index.html` — trip hub: countdown, route overview, to-do checklist, links
+- `index.html` — trip hub: countdown, route map, to-do checklist, links
 - `itinerary.html` — day-by-day itinerary
-- `budget.html` — shared expense tracker (saved in the browser via `localStorage`)
+- `housing.html` — housing placeholders for HCMC and Hanoi (not booked yet)
 - `css/style.css` — shared styles
 - `js/main.js` — countdown timer
-- `js/budget.js` — expense tracker logic
+- `js/map.js` — Leaflet route map
 
 ## Local preview
 
