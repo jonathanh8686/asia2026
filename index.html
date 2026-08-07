@@ -6,6 +6,7 @@
 <title>Vietnam 2026 — Trip Hub</title>
 <meta name="description" content="Ho Chi Minh City → Ninh Binh → Hanoi, November 19–28, 2026.">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body>
 
@@ -23,19 +24,8 @@
 <header class="wrap" style="padding-top:56px;">
   <div class="ticket">
     <div class="ticket-main">
-      <p class="ticket-route">Boarding pass · Friends abroad</p>
-      <h1>Five friends, <em>one</em> Vietnam.</h1>
-
-      <div class="ticket-cities">
-        <div class="city-group">
-          <span class="code">SFO</span><span class="plus">+</span>
-          <span class="code">JFK</span><span class="plus">+</span>
-          <span class="code">BOS</span><span class="plus">+</span>
-          <span class="code">ORD</span>
-        </div>
-        <span class="arrow">→</span>
-        <span class="code">SGN → HAN</span>
-      </div>
+      <p class="ticket-route">SGN → HAN</p>
+      <h1>Ho Chi Minh City → Ninh Binh → Hanoi</h1>
 
       <div class="ticket-meta">
         <div>
@@ -73,45 +63,15 @@
       </div>
       <div class="barcode" aria-hidden="true"></div>
     </div>
-
-    <div class="stamp" aria-hidden="true">GROUP<br>TRIP<br>№26</div>
   </div>
 </header>
-
-<section class="band band-ink">
-  <div class="wrap">
-    <div class="stat-row">
-      <div class="stat"><div class="num">10</div><div class="stat-label">Days on the ground</div></div>
-      <div class="stat"><div class="num">3</div><div class="stat-label">Home cities departing</div></div>
-      <div class="stat"><div class="num">2</div><div class="stat-label">Vietnamese cities</div></div>
-      <div class="stat"><div class="num">5</div><div class="stat-label">Passengers</div></div>
-    </div>
-  </div>
-</section>
 
 <section class="wrap">
   <div class="section-head">
     <p class="eyebrow">The route</p>
-    <h2>Ho Chi Minh City → Ninh Binh → Hanoi</h2>
-    <p>South to north: city chaos and nightlife first, then rice paddies and limestone karsts, then Old Quarter culture and egg coffee to close it out.</p>
   </div>
   <div class="route-map">
-    <svg class="route-svg" viewBox="-60 0 1020 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Route map from Ho Chi Minh City to Ninh Binh to Hanoi">
-      <line x1="90" y1="150" x2="450" y2="60" stroke="#1C1912" stroke-width="2" stroke-dasharray="1 9" stroke-linecap="round"/>
-      <line x1="450" y1="60" x2="810" y2="130" stroke="#1C1912" stroke-width="2" stroke-dasharray="1 9" stroke-linecap="round"/>
-
-      <rect x="79" y="139" width="22" height="22" rx="4" transform="rotate(45 90 150)" fill="#E2572E" stroke="#1C1912" stroke-width="2"/>
-      <text x="90" y="180" text-anchor="middle" class="route-stop-label">Ho Chi Minh City</text>
-      <text x="90" y="196" text-anchor="middle" class="route-stop-sub">Nov 20–23 · nightlife &amp; sightseeing</text>
-
-      <rect x="439" y="49" width="22" height="22" rx="4" transform="rotate(45 450 60)" fill="#3E8E7E" stroke="#1C1912" stroke-width="2"/>
-      <text x="450" y="38" text-anchor="middle" class="route-stop-label">Ninh Binh</text>
-      <text x="450" y="22" text-anchor="middle" class="route-stop-sub">Nov 26 · rice paddies &amp; boat tour</text>
-
-      <rect x="799" y="119" width="22" height="22" rx="4" transform="rotate(45 810 130)" fill="#F0B93D" stroke="#1C1912" stroke-width="2"/>
-      <text x="810" y="160" text-anchor="middle" class="route-stop-label">Hanoi</text>
-      <text x="810" y="176" text-anchor="middle" class="route-stop-sub">Nov 24–28 · Old Quarter &amp; egg coffee</text>
-    </svg>
+    <div id="trip-map" role="img" aria-label="Map of the trip route: Ho Chi Minh City, Ninh Binh, Hanoi"></div>
   </div>
 </section>
 
@@ -131,21 +91,13 @@
 </section>
 
 <section class="wrap">
-  <div class="section-head">
-    <p class="eyebrow">Get into it</p>
-    <h2>Where to next</h2>
-  </div>
   <div class="card-grid">
     <a class="link-card" href="itinerary.html">
-      <p class="eyebrow">Day by day</p>
       <h3>Full itinerary</h3>
-      <p>Every stop from wheels-up on Nov 19 to departure on Nov 28 — sightseeing, food, and the Ninh Binh day trip.</p>
       <p class="go">View itinerary →</p>
     </a>
     <a class="link-card" href="budget.html">
-      <p class="eyebrow">Split the bill</p>
       <h3>Budget tracker</h3>
-      <p>Log shared expenses, split them across the group, and see who owes who before we settle up.</p>
       <p class="go">Open budget →</p>
     </a>
   </div>
@@ -155,6 +107,8 @@
   <div class="wrap">VIETNAM <span class="gold">2026</span> · HCMC → Ninh Binh → Hanoi · Nov 19–28</div>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="js/main.js"></script>
+<script src="js/map.js"></script>
 </body>
 </html>
